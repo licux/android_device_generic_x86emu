@@ -8,7 +8,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_COPY_FILES += \
     development/sys-img/advancedFeatures.ini:advancedFeatures.ini \
     device/generic/goldfish/data/etc/encryptionkey.img:encryptionkey.img \
-    prebuilts/qemu-kernel/x86/3.18/kernel-qemu2:kernel-ranchu
 
 include $(SRC_TARGET_DIR)/product/full_x86.mk
 
@@ -17,17 +16,22 @@ PRODUCT_DEVICE := x86emu
 PRODUCT_BRAND := x86emu
 PRODUCT_MODEL := x86emu
 
-## From x86_base.mk 
-#TARGET_KERNEL_SOURCE := kernel
-#PRODUCT_OUT ?= out/target/product/x86emu
+## 
+TARGET_KERNEL_SOURCE := kernel
+TARGET_KERNEL_CONFIG := i386_ranchu_defconfig
+TARGET_ARCH := x86
 
-# include $(TARGET_KERNEL_SOURCE)/AndroidKernel.mk
+PRODUCT_OUT ?= out/target/product/x86emu
+
+include device/generic/x86emu/AndroidKernel.mk
 
 # define build targets for kernel
-# .PHONY: $(TARGET_PREBUILD_KERNEL)
+.PHONY: $(TARGET_KERNEL)
 
-# LOCAL_KERNEL := $(TARGET_PREBUILD_KERNEL)
+LOCAL_KERNEL := $(TARGET_KERNEL)
 
-# PRODUCT_COPY_FILES += \
-# 	$(LOCAL_KERNEL):kernel \
+PRODUCT_COPY_FILES += \
+	$(LOCAL_KERNEL):kernel-ranchu \
+
+
 
