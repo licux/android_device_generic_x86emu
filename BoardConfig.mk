@@ -5,6 +5,9 @@ TARGET_CPU_ABI := x86
 TARGET_ARCH := x86
 TARGET_ARCH_VARIANT := x86
 TARGET_PRELINK_MODULE := false
+#TARGET_2ND_ARCH := arm
+#TARGET_2ND_ARCH_VARIANT := armv7-a-neon
+#TARGET_2ND_CPU_ABI := armeabi-v7a
 
 # The IA emulator (qemu) uses the Goldfish devices
 HAVE_HTC_AUDIO_DRIVER := true
@@ -33,6 +36,15 @@ BUILD_QEMU_IMAGES := true
 # Build and enable the OpenGL ES View renderer. When running on the emulator,
 # the GLES renderer disables itself if host GL acceleration isn't available.
 USE_OPENGL_RENDERER := true
+
+# houdini
+# Native Bridge ABI List
+NATIVE_BRIDGE_ABI_LIST_32_BIT := armeabi-v7a armeabi
+NATIVE_BRIDGE_ABI_LIST_64_BIT := arm64-v8a
+TARGET_CPU_ABI_LIST_32_BIT := $(TARGET_CPU_ABI) $(TARGET_CPU_ABI2) $(NATIVE_BRIDGE_ABI_LIST_32_BIT)
+TARGET_CPU_ABI_LIST := $(TARGET_CPU_ABI_LIST_32_BIT)
+
+BUILD_ARM_FOR_X86 := $(WITH_NATIVE_BRIDGE)
 
 TARGET_USERIMAGES_USE_EXT4 := true
 BOARD_SYSTEMIMAGE_PARTITION_SIZE := 2684354560

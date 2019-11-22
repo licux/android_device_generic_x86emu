@@ -1,3 +1,5 @@
+$(call inherit-product, device/generic/x86emu/device.mk)
+
 PRODUCT_PROPERTY_OVERRIDES += \
 	rild.libpath=/vendor/lib/libreference-ril.so
 
@@ -16,7 +18,22 @@ PRODUCT_DEVICE := x86emu
 PRODUCT_BRAND := x86emu
 PRODUCT_MODEL := x86emu
 
-## 
+PRODUCT_PROPERTY_OVERRIDES += \
+	persist.sys.nativebridge=1 \
+
+HOUDINI_PATH := houdini
+DEST_PATH := system/lib/arm
+SYS_PATH := system/lib
+
+PRODUCT_COPY_FILES +=  \
+	$(call find-copy-subdir-files,*,$(LOCAL_PATH)/$(HOUDINI_PATH),$(DEST_PATH)) \
+	$(call find-copy-subdir-files,*,$(LOCAL_PATH)/$(HOUDINI_PATH)/nb,$(DEST_PATH)/nb) \
+	$(LOCAL_PATH)/$(HOUDINI_PATH)/libhoudini.so:system/lib/libhoudini.so \
+	$(LOCAL_PATH)/$(HOUDINI_PATH)/houdini:system/bin/houdini \
+
+$(warning $(LOCAL_PATH))
+
+## For kernel build 
 TARGET_KERNEL_SOURCE := kernel
 TARGET_KERNEL_CONFIG := i386_ranchu_defconfig
 TARGET_ARCH := x86
