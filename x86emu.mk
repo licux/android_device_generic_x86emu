@@ -48,7 +48,7 @@ include device/generic/x86emu/AndroidKernel.mk
 LOCAL_KERNEL := $(TARGET_KERNEL)
 
 PRODUCT_COPY_FILES += \
-	$(LOCAL_KERNEL):kernel-ranchu \
+	$(LOCAL_KERNEL):kernel \
 
 
 
