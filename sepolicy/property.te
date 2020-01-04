@@ -1,0 +1,2 @@
+type net_eth0_prop, property_type;
+type net_share_prop, property_type;

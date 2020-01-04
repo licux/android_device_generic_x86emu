@@ -1,3 +1,5 @@
+include $(SRC_TARGET_DIR)/product/full_x86.mk
+
 $(call inherit-product, device/generic/x86emu/device.mk)
 
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -11,7 +13,6 @@ PRODUCT_COPY_FILES += \
     development/sys-img/advancedFeatures.ini:advancedFeatures.ini \
     device/generic/goldfish/data/etc/encryptionkey.img:encryptionkey.img \
 
-include $(SRC_TARGET_DIR)/product/full_x86.mk
 
 PRODUCT_NAME := x86emu
 PRODUCT_DEVICE := x86emu
@@ -31,7 +32,6 @@ PRODUCT_COPY_FILES +=  \
 	$(LOCAL_PATH)/$(HOUDINI_PATH)/libhoudini.so:system/lib/libhoudini.so \
 	$(LOCAL_PATH)/$(HOUDINI_PATH)/houdini:system/bin/houdini \
 
-$(warning $(LOCAL_PATH))
 
 ## For kernel build 
 TARGET_KERNEL_SOURCE := kernel
