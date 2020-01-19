@@ -7,7 +7,9 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PACKAGES +=  \
     android.hardware.wifi@1.0-service \
-	
+
+PRODUCT_PACKAGES += \
+	Launcher3 \
 
 PRODUCT_COPY_FILES += \
 	frameworks/native/data/etc/android.hardware.ethernet.xml:system/etc/permissions/android.hardware.ethernet.xml \
@@ -25,6 +27,12 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES +=  device/generic/goldfish/wifi/simulated_hostapd.conf:$(TARGET_COPY_OUT_VENDOR)/etc/simulated_hostapd.conf
 PRODUCT_COPY_FILES +=  device/generic/x86emu/wpa_supplicant.conf:vendor/etc/wifi/wpa_supplicant.conf
 PRODUCT_COPY_FILES +=  device/generic/x86emu/wpa_supplicant_overlay.conf:vendor/etc/wifi/wpa_supplicant_overlay.conf
+
+PRODUCT_PROPERTY_OVERRIDES += \
+	ro.sys.phone.density=420 \
+	ro.sys.tablet.density=288 \
+	ro.sys.largetablet.density=196 \
+
 
 DEVICE_MANIFEST_FILE := device/generic/x86emu/manifest.xml
 DEVICE_MATRIX_FILE   := device/generic/x86emu/compatibility_matrix.xml
