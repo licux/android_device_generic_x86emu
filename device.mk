@@ -4,12 +4,18 @@ PRODUCT_PACKAGES += \
 	wificond \
 	wpa_supplicant \
 	wpa_supplicant.conf \
+	libandroid_native_app_glue \
 
 PRODUCT_PACKAGES +=  \
     android.hardware.wifi@1.0-service \
 
 PRODUCT_PACKAGES += \
 	Launcher3 \
+	com.android.masaki.mediaservice \
+	com.android.masaki.mediahmi \
+	MyNative \
+	libmynative \
+	
 
 PRODUCT_COPY_FILES += \
 	frameworks/native/data/etc/android.hardware.ethernet.xml:system/etc/permissions/android.hardware.ethernet.xml \
