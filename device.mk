@@ -16,6 +16,10 @@ PRODUCT_PACKAGES += \
 	MyNative \
 	libmynative \
 	
+PRODUCT_PACKAGES += \
+	mycamera \
+	vendor.masaki.hardware.camera.provider@2.4-impl \
+	vendor.masaki.hardware.camera.provider@2.4-service \
 
 PRODUCT_COPY_FILES += \
 	frameworks/native/data/etc/android.hardware.ethernet.xml:system/etc/permissions/android.hardware.ethernet.xml \

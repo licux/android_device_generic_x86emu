@@ -120,6 +120,9 @@
         <interface>
             <name>ICameraProvider</name>
             <instance>legacy/0</instance>
+            <instance>external/0</instance>
+            <instance>default</instance>
+            <instance>mycamera</instance>
         </interface>
     </hal>
     <hal format="hidl">
